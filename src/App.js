@@ -2,7 +2,7 @@
 import React from "react";
 
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Product from "./component/product/product";
@@ -15,6 +15,8 @@ import Logout from "./component/logout";
 import Tab from "./component/new folder/tab";
 import Register from "./component/form/register";
 import TableData from "./component/new folder/tableData";
+import CompA from "./component/parentchild/compA";
+import Stock from "./component/stock table/stock";
 
 function App(props) {
   const { isAuth } = props;
@@ -26,6 +28,8 @@ function App(props) {
       <Route path="/tab" component={Tab} />
       <Route path="/register" component={Register} />
       <Route path="/table" component={TableData} />
+      <Route path="/parentComponent" component={CompA} />
+      <Route path="/stock" component={Stock} />
     </Switch>
   );
 

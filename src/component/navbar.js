@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -40,6 +40,13 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
+                <NavLink to="/parentComponent"> parentToChild</NavLink>
+              </li>
+            ) : null}
+
+            {!isAuth ? (
+              <li>
+                {" "}
                 <NavLink to="/table"> Table</NavLink>
               </li>
             ) : null}
@@ -59,6 +66,12 @@ const Navbar = (props) => {
               <li>
                 {" "}
                 <NavLink to="/reducer"> Reducer </NavLink>{" "}
+              </li>
+            ) : null}
+            {!isAuth ? (
+              <li>
+                {" "}
+                <NavLink to="/stock"> Stocks Table</NavLink>{" "}
               </li>
             ) : null}
             {isAuth ? (

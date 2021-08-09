@@ -1,0 +1,29 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "leanne",
+        "price": 200,
+        "quanity":1
+      },
+      {
+        "id": 2,
+        "name": "grvin",
+        "price": 50.10,
+        "quanity":1
+      },
+      {
+        "id": 3,
+        "name": "clementine",
+        "price": 30,
+        "quanity":1
+      },
+      {
+        "id": 4,
+        "name": "patricia",
+        "price": 90,
+        "quanity":1
+       
+      }
+    ]
+}

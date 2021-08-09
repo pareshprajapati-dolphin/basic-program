@@ -97,7 +97,7 @@ const Register = () => {
               accept=".png .jpg"
               onChange={handlefile}
             />
-            <img src={file} />
+            <img src={file} alt="upload img" />
           </div>
 
           <button type="submit" className="btn btn-primary">

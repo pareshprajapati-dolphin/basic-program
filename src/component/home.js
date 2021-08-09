@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import HomeComponent from "./home1/homeComponent";
-import ChidComponet from "./home1";
 
 const Home = () => {
   const [timer, setTimer] = useState();
   const [dateTime, setDateTime] = useState();
-  let a = 5;
+  let a = 20;
 
   useEffect(() => {
     let interval = setInterval(() => {
@@ -15,7 +13,7 @@ const Home = () => {
         loadtdate();
         clearInterval(interval);
       }
-    }, 500);
+    }, 1000);
   }, []);
 
   const loadtdate = () => {

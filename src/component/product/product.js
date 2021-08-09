@@ -66,7 +66,7 @@ const Product = () => {
           product
             .sort((a, b) => a.price - b.price)
 
-            .map((val, key) => {
+            .map((val) => {
               <div className="col-6 col-md-3 mt-2">
                 <div className="card" style={{ width: "18 rem" }}>
                   <img
@@ -85,7 +85,7 @@ const Product = () => {
         {selected === "descending" &&
           product
             .sort((a, b) => b.price - a.price)
-            .map((val, key) => {
+            .map((val) => {
               <div className="col-6 col-md-3 mt-2">
                 <div className="card" style={{ width: "18 rem" }}>
                   <img

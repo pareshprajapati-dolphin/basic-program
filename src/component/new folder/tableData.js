@@ -14,9 +14,8 @@ const TableData = () => {
   };
 
   const onSortChange = (key) => {
-    let arrayCopy = "";
-    arrayCopy = users;
-    console.log(arrayCopy);
+    let arrayCopy = [...users];
+    //console.log(arrayCopy);
 
     if (keyValue !== key) {
       arrayCopy.sort((a, b) =>
@@ -52,13 +51,14 @@ const TableData = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
-                <tr>
-                  <th scope="row">{index + 1}</th>
-                  <td>{user.firstname}</td>
-                  <td>{user.price}</td>
-                </tr>
-              ))}
+              {users &&
+                users.map((user, index) => (
+                  <tr>
+                    <th scope="row">{index + 1}</th>
+                    <td>{user.firstname}</td>
+                    <td>{user.price}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
