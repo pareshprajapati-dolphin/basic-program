@@ -2,13 +2,13 @@
     "products": [
       {
         "id": 1,
-        "name": "leanne",
-        "price": 200,
+        "name": "Tata Power",
+        "price": 500,
         "quanity":1
       },
       {
         "id": 2,
-        "name": "grvin",
+        "name": "Tcs",
         "price": 50.10,
         "quanity":1
       },

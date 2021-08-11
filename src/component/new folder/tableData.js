@@ -22,14 +22,15 @@ const TableData = () => {
         a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0
       );
       setKeyValue(key);
-      setUsers(arrayCopy);
+      // setUsers(arrayCopy);
     } else {
       arrayCopy.sort((a, b) =>
         b[key] > a[key] ? 1 : a[key] > b[key] ? -1 : 0
       );
       setKeyValue("");
-      setUsers(arrayCopy);
+      // setUsers(arrayCopy);
     }
+    setUsers(arrayCopy);
   };
 
   return (
