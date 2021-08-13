@@ -52,7 +52,7 @@ const Login = () => {
           <div className="form-group">
             <label>Password</label>
             <input
-              type="password"
+              type="text"
               name="password"
               className="form-control"
               id="password"

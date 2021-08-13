@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import data from "../../db.json";
 
 const TableData = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(data.users);
   const [keyValue, setKeyValue] = useState("");
-
-  useEffect(() => {
-    loaduser();
-  }, []);
-
-  const loaduser = async () => {
-    setUsers(data.users);
-  };
 
   const onSortChange = (key) => {
     let arrayCopy = [...users];

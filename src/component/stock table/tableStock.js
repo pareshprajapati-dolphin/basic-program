@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const TableStock = (props) => {
-  const { products, TotalPrices, stocks, checked, disabled, parentcall } =
-    props;
+  const { products, TotalPrices, disabled, parentcall } = props;
   const [stock, setStock] = useState(products);
 
   const quanityChange = (e, index) => {
     let a = 0;
     let data1 = stock;
     data1[index].quanity = e.target.value;
+    if (e.target.value === null) return;
     data1.map((datatext) => (a += datatext.quanity * datatext.price));
     parentcall(a, data1);
   };
@@ -21,6 +21,7 @@ const TableStock = (props) => {
 
     setStock([...data1]);
   };
+
   return (
     <>
       <div className="my-3">
@@ -38,7 +39,7 @@ const TableStock = (props) => {
             {stock &&
               stock.map((stock, index) => (
                 <tr>
-                  <td scope="row">{index + 1}</td>
+                  <td>{index + 1}</td>
                   <td>{stock.name}</td>
                   <td>
                     <input
@@ -51,11 +52,7 @@ const TableStock = (props) => {
                     />
                   </td>
                   <td>{stock.price}</td>
-                  <td>
-                    {stocks !== "" && checked === "quantity"
-                      ? (stocks * stock.price).toFixed(2)
-                      : (stock.quanity * stock.price).toFixed(2)}
-                  </td>
+                  <td>{(stock.quanity * stock.price).toFixed(2)}</td>
                 </tr>
               ))}
             <tr className="table-borderless">
