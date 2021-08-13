@@ -17,6 +17,7 @@ import Register from "./component/form/register";
 import TableData from "./component/new folder/tableData";
 import CompA from "./component/parentchild/compA";
 import Stock from "./component/stock table/stock";
+import Data from "./component/home1/Data";
 
 function App(props) {
   const { isAuth } = props;
@@ -30,6 +31,7 @@ function App(props) {
       <Route path="/table" component={TableData} />
       <Route path="/parentComponent" component={CompA} />
       <Route path="/stock" component={Stock} />
+      <Route path="/home1" component={Data} />
     </Switch>
   );
 
@@ -56,7 +58,7 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: state.auth.userdata,
+    isAuth: state.authReducer.userdata,
   };
 };
 

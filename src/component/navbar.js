@@ -74,6 +74,12 @@ const Navbar = (props) => {
                 <NavLink to="/stock"> Stocks Table</NavLink>{" "}
               </li>
             ) : null}
+            {!isAuth ? (
+              <li>
+                {" "}
+                <NavLink to="/home1">Redux count</NavLink>{" "}
+              </li>
+            ) : null}
             {isAuth ? (
               <li>
                 {" "}
@@ -89,7 +95,7 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: state.auth.userdata,
+    isAuth: state.authReducer.userdata,
   };
 };
 
