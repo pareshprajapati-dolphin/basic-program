@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import * as actionType from "./actionType";
 
 export const authstart = () => {

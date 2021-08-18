@@ -7,6 +7,7 @@ const Register = () => {
     lastname: "",
     email: "",
     password: "",
+    dob: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -87,6 +88,16 @@ const Register = () => {
               value={data.password}
             />
             {errors.firstname && <span>{errors.password}</span>}
+          </div>
+          <div className="form-group">
+            <label>Date Of Birth</label>
+            <input
+              type="date"
+              name="dob"
+              className="form-control"
+              value={data.dob}
+              onChange={handleChange}
+            />
           </div>
           <div className="form-group">
             <label>upload file</label>

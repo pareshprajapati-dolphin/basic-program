@@ -65,7 +65,6 @@ const Product = () => {
         {selected === "ascending" &&
           product
             .sort((a, b) => a.price - b.price)
-
             .map((val) => {
               <div className="col-6 col-md-3 mt-2">
                 <div className="card" style={{ width: "18 rem" }}>

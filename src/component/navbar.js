@@ -77,7 +77,13 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/home1">Redux count</NavLink>{" "}
+                <NavLink to="/productdata">filpkart productdesign</NavLink>{" "}
+              </li>
+            ) : null}
+            {!isAuth ? (
+              <li>
+                {" "}
+                <NavLink to="/stock"> Stocks Table</NavLink>{" "}
               </li>
             ) : null}
             {isAuth ? (

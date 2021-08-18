@@ -18,6 +18,9 @@ import TableData from "./component/new folder/tableData";
 import CompA from "./component/parentchild/compA";
 import Stock from "./component/stock table/stock";
 import Data from "./component/home1/Data";
+import ScrollToTop from "./component/scrollToTop";
+import ProductData from "./component/product sortion on checkbox/productData";
+import Cart from "./component/product sortion on checkbox/cart";
 
 function App(props) {
   const { isAuth } = props;
@@ -32,6 +35,8 @@ function App(props) {
       <Route path="/parentComponent" component={CompA} />
       <Route path="/stock" component={Stock} />
       <Route path="/home1" component={Data} />
+      <Route exact path="/productdata" component={ProductData} />
+      <Route exact path="/productdata/carts" component={Cart} />
     </Switch>
   );
 
@@ -51,6 +56,7 @@ function App(props) {
       <div className="App">
         <Navbar />
         {route}
+        <ScrollToTop />
       </div>
     </>
   );

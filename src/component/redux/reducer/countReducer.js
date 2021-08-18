@@ -1,4 +1,3 @@
-import { connect } from "react-redux";
 import * as actionType from "../actions/actionType";
 
 const instialState = {
@@ -11,8 +10,7 @@ const countReducer = (state = instialState, action) => {
   switch (action.type) {
     case actionType.INCREMENT:
       return {
-        // Copy the whole state
-        ...state,
+        ...state, // Copy the whole state //
         count: action.total1,
         user: action.arraydata,
       };

@@ -45,7 +45,7 @@ const TableData = () => {
     setCtime(dateTime1);
   };
 
-  setInterval(updateTime, 200);
+  setInterval(updateTime);
 
   const onSortChange = (key) => {
     let arrayCopy = [...users];
@@ -71,7 +71,7 @@ const TableData = () => {
     <>
       <div className="container-fluid">
         <div classNames="mr-3 text-right">
-          <p className="d-inline">{ctime}</p>
+          <h1 className="d-inline">{ctime}</h1>
         </div>
         <div className="my-3">
           <table class="table border shadow">
