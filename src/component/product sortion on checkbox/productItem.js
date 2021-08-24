@@ -15,9 +15,9 @@ const ProductItem = ({ productData }) => {
     } else {
       hardCopy = hardCopy.filter((cartItem) => cartItem.id !== item.id);
     }
-
+    console.log(hardCopy);
     setCart(hardCopy);
-    setCount(hardCopy.length);
+    setCount(hardCopy.length); // set the count varibel and that affect into p
   };
 
   return (

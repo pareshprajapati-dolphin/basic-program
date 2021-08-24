@@ -21,6 +21,13 @@ import Data from "./component/home1/Data";
 import ScrollToTop from "./component/scrollToTop";
 import ProductData from "./component/product sortion on checkbox/productData";
 import Cart from "./component/product sortion on checkbox/cart";
+import { signin } from "./component/redux/actions";
+import EditUser from "./component/new folder/editUser";
+import Date from "./component/custom compo/utility/dateFormat";
+
+// import SignIn from "./component/demo privete rounting/login";
+// import ProtectedRoute from "./component/demo privete rounting/ProtectedRoute";
+// import Home from "./component/home1/homeComponent";
 
 function App(props) {
   const { isAuth } = props;
@@ -37,6 +44,8 @@ function App(props) {
       <Route path="/home1" component={Data} />
       <Route exact path="/productdata" component={ProductData} />
       <Route exact path="/productdata/carts" component={Cart} />
+      <Route exact path="/users/edit/:id" component={EditUser} />
+      <Route path="/date" component={Date} />
     </Switch>
   );
 
@@ -53,6 +62,10 @@ function App(props) {
 
   return (
     <>
+      {/* <Switch>
+        <Route exact path="/login" component={SignIn} />
+        <ProtectedRoute path="/home" component={Home} />
+      </Switch> */}
       <div className="App">
         <Navbar />
         {route}

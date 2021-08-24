@@ -12,3 +12,6 @@ export const RESETDATA = "RESETDATA";
 export const ADD = "ADD";
 export const SUB = "SUB";
 export const ZERO = "ZERO";
+
+//// this the cart component action ///
+export const ADD_CART = "ADD_CART";

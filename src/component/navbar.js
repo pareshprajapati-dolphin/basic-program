@@ -80,12 +80,6 @@ const Navbar = (props) => {
                 <NavLink to="/productdata">filpkart productdesign</NavLink>{" "}
               </li>
             ) : null}
-            {!isAuth ? (
-              <li>
-                {" "}
-                <NavLink to="/stock"> Stocks Table</NavLink>{" "}
-              </li>
-            ) : null}
             {isAuth ? (
               <li>
                 {" "}

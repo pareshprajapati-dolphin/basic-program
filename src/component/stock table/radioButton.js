@@ -16,20 +16,19 @@ const RadioButton = (props) => {
     if (checked === "price") {
       console.log("price function  is call");
       let amountperquanity = stocks / product.length;
-      console.log(amountperquanity);
+      //console.log(amountperquanity);
       let limiteprice = 0;
 
       caldata = caldata.map((ele) => {
         limiteprice = limiteprice + ele.price;
-
-        console.log("the limit price is ===", limiteprice);
+        // console.log("the limit price is ===", limiteprice);
         if (stocks > limiteprice) {
           ele.quanity = Math.floor(amountperquanity / ele.price);
           console.log(ele.quanity);
         }
         return ele;
       });
-      console.log(caldata);
+      // console.log(caldata);
     }
     //console.log(caldata);
     setProducts(caldata);

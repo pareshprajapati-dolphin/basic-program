@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import data from "../../db.json";
+import { Link } from "react-router-dom";
 
 const TableData = () => {
   const [users, setUsers] = useState(data.users);
@@ -86,6 +87,7 @@ const TableData = () => {
                 <th scope="col" onClick={() => onSortChange("price")}>
                   price
                 </th>
+                <th scope="col"> Action </th>
               </tr>
             </thead>
             <tbody>
@@ -95,6 +97,12 @@ const TableData = () => {
                     <th scope="row">{index + 1}</th>
                     <td>{user.firstname}</td>
                     <td>{user.price}</td>
+                    <td>
+                      <Link className="specer" to={`/users/edit/${user.id}`}>
+                        {" "}
+                        Edit{" "}
+                      </Link>
+                    </td>
                   </tr>
                 ))}
             </tbody>
