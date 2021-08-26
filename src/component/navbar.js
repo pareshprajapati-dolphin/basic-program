@@ -16,74 +16,106 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" className="nav-item">
+                  Home
+                </NavLink>
               </li>
             ) : null}
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/login"> Login</NavLink>{" "}
+                <NavLink to="/login" className="nav-item">
+                  {" "}
+                  Login
+                </NavLink>{" "}
               </li>
             ) : null}
             {!isAuth ? (
               <li>
-                <NavLink to="/register"> Sign up</NavLink>
+                <NavLink to="/register" className="nav-item">
+                  {" "}
+                  Sign up
+                </NavLink>
               </li>
             ) : null}
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/tab"> Tab open</NavLink>
+                <NavLink to="/tab" className="nav-item">
+                  {" "}
+                  Tab open
+                </NavLink>
               </li>
             ) : null}
 
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/parentComponent"> parentToChild</NavLink>
+                <NavLink to="/parentComponent" className="nav-item">
+                  {" "}
+                  parentToChild
+                </NavLink>
               </li>
             ) : null}
 
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/table"> Table</NavLink>
+                <NavLink to="/table" className="nav-item">
+                  {" "}
+                  User Table
+                </NavLink>
               </li>
             ) : null}
             {isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/product"> Product </NavLink>{" "}
+                <NavLink to="/product" className="nav-item">
+                  {" "}
+                  Product{" "}
+                </NavLink>{" "}
               </li>
             ) : null}
             {isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/context"> Context </NavLink>{" "}
+                <NavLink to="/context" className="nav-item">
+                  {" "}
+                  Context{" "}
+                </NavLink>{" "}
               </li>
             ) : null}
             {isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/reducer"> Reducer </NavLink>{" "}
+                <NavLink to="/reducer" className="nav-item">
+                  {" "}
+                  Reducer{" "}
+                </NavLink>{" "}
               </li>
             ) : null}
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/stock"> Stocks Table</NavLink>{" "}
+                <NavLink to="/stock" className="nav-item">
+                  {" "}
+                  Stocks Table
+                </NavLink>{" "}
               </li>
             ) : null}
             {!isAuth ? (
               <li>
-                {" "}
-                <NavLink to="/productdata">filpkart productdesign</NavLink>{" "}
+                <NavLink to="/productdata" className="nav-item">
+                  filpkart productdesign
+                </NavLink>{" "}
               </li>
             ) : null}
             {isAuth ? (
               <li>
-                {" "}
-                <NavLink to="/logout"> Logout </NavLink>{" "}
+                <NavLink to="/logout" className="nav-item">
+                  {" "}
+                  Logout{" "}
+                </NavLink>{" "}
               </li>
             ) : null}
           </ul>

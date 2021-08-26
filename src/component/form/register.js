@@ -1,9 +1,10 @@
 import React from "react";
 //import validation from "./validation";
-
+import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import Button from "../custom compo/utility/button";
-import Input from "../custom compo/utility/input";
+import { DateTimeFormat } from "../custom compo/utility/dateTimeFormat";
+//import Input from "../custom compo/utility/input";
 
 const Register = (props) => {
   const {
@@ -12,6 +13,8 @@ const Register = (props) => {
     formState: { errors },
     reset,
   } = useForm({});
+
+  const history = useHistory();
   // const [data, setData] = useState({
   //   firstname: "",
   //   lastname: "",
@@ -47,7 +50,17 @@ const Register = (props) => {
   // };
 
   const onAdd = (data) => {
-    console.log(data);
+    const dataSub = {
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      phone: data.phone,
+      address: {
+        category: data.category,
+        weather: data.weather,
+      },
+    };
+    console.log(dataSub);
     reset();
   };
   return (
@@ -131,22 +144,22 @@ const Register = (props) => {
         </form> */}
 
         <form onSubmit={handleSubmit(onAdd)}>
-          <Input
-            type="text"
-            name="firstName"
-            label="First Name"
-            placeholder="firstName"
-            ref={register("firstname", {
+          <label className="label">FirstName</label>
+          <input
+            className="input"
+            {...register("firstname", {
               required: true,
             })}
+            placeholder="firstname"
           />
           <div>
             {errors.firstname && (
               <span className="error">This field is required</span>
             )}
           </div>
-          <label> LastName</label>
+          <label className="label"> LastName</label>
           <input
+            className="input"
             {...register("lastname", {
               required: true,
               pattern: /^[A-Za-z]+$/i,
@@ -163,8 +176,9 @@ const Register = (props) => {
               <span className="error">This field is required </span>
             )}
           </div>
-          <label>Email Id</label>
+          <label className="label">Email Id</label>
           <input
+            className="input"
             {...register("email", {
               required: true,
               pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -174,11 +188,12 @@ const Register = (props) => {
           <div>
             {errors.email && <span className="error"> invalid Email id</span>}
           </div>
-          <label>Phone Number</label>
+          <label className="label">Phone Number</label>
           <input
+            className="input"
             type="number"
             {...register("phone", {
-              required: "This field is required",
+              required: "true",
               minLength: "10",
               maxLength: { value: 10, message: "not more then 10" },
             })}
@@ -189,18 +204,35 @@ const Register = (props) => {
               <span className="error">Enter the valid Number</span>
             )}
           </div>
-          <label>Date of Birth</label>
+          <label className="label">Date of Birth</label>
           <input
+            className="input"
             type="date"
             {...register("dob", {
               required: "true",
             })}
+            // defaultValue={DateTimeFormat(
+            //   "Tue Aug 26 2021 15:54:25 GMT+0530 (India Standard Time)"
+            // )}
           />
-          <div>
+
+          <label className="label">TextArea</label>
+          <textarea
+            className="input"
+            type="text"
+            {...register("textarea", {
+              required: "true",
+            })}
+            placeholder="Enter the text"
+          />
+          {/* <div>
             {errors.dob && <span className="error">select the date</span>}
-          </div>
-          <label> Category</label>
-          <select {...register("category", { required: true, value: "A" })}>
+          </div> */}
+          <label className="label"> Category</label>
+          <select
+            className="select"
+            {...register("category", { required: true, value: "A" })}
+          >
             <option value="">Select Category...</option>
             <option value="A">Category A</option>
             <option value="B">Category B</option>
@@ -210,21 +242,25 @@ const Register = (props) => {
               <span className="error">select the one Category</span>
             )}
           </div>
-          <label>I would like to: </label>
-          <input
-            {...register("weather", { required: "true" })}
-            type="radio"
-            name="weather"
-            value="rain"
-          />
-          <h4>Rain</h4>
-          <input
-            {...register("weather", { required: "true" })}
-            type="radio"
-            name="weather"
-            value="wind"
-          />
-          <h4>Wind</h4>
+          <label className="label">
+            I would like to:
+            <input
+              style={{ margin: "0px 10px" }}
+              {...register("weather", { required: "true" })}
+              type="radio"
+              name="weather"
+              value="rain"
+            />
+            <label>Rain</label>
+            <input
+              style={{ margin: "0px 10px" }}
+              {...register("weather", { required: "true" })}
+              type="radio"
+              name="weather"
+              value="wind"
+            />
+            <label>Wind</label>
+          </label>
           <div>
             {errors.weather && (
               <span className="error">select the one value</span>
@@ -238,6 +274,14 @@ const Register = (props) => {
           >
             Submit
           </Button>
+          <button
+            type="button"
+            className="btn btn-secondary mt-3 mx-3"
+            onClick={() => history.push("/")}
+          >
+            {" "}
+            cancel
+          </button>
         </form>
       </div>
     </>

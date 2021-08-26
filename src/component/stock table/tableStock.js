@@ -60,7 +60,7 @@ const TableStock = (props) => {
               <td></td>
               <td></td>
               <td></td>
-              <td>Total price:-{TotalPrices.toFixed(2)}</td>
+              <td> Total price:-{TotalPrices.toFixed(2)}</td>
             </tr>
           </tbody>
         </table>

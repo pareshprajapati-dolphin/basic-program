@@ -46,7 +46,6 @@ const Stock = () => {
 
   const handleConfirm = () => {
     toast.success("your data is submitt");
-
     setCurrent(current + 1);
   };
 

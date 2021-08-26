@@ -39,10 +39,10 @@ const Login = () => {
       <div className="container pt-3 rounded border">
         <form onSubmit={handleSubmitt}>
           <div className="form-group">
-            <label>Email address</label>
+            <label className="label">Email address</label>
             <input
               type="email"
-              className="form-control"
+              className="form-control input"
               name="email"
               placeholder="Enter email"
               onChange={handleChange}
@@ -50,7 +50,7 @@ const Login = () => {
             />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label className="label">Password</label>
             <input
               type="password"
               name="password"

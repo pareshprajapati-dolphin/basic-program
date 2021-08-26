@@ -1,0 +1,47 @@
+.navbar {
+  background: #333;
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar ul li {
+  float: left;
+}
+
+.navbar ul li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 17px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: red;
+}
+
+.navbar ul ul {
+  position: absolute;
+  top: 90px;
+  background: #333;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.5s;
+}
+
+.navbar ul li:hover > ul {
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+.navbar ul ul li {
+  position: relative;
+  margin: 0px;
+  width: 150px;
+  float: none;
+  display: list-item;
+}

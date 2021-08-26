@@ -38,6 +38,10 @@ const ProductData = () => {
     }
 
     setCheckValue(resultArray);
+    if (resultArray.length === 0) {
+      SetProductData(product);
+      setSelectedData(product);
+    }
     if (resultArray.length > 0) {
       resultArray.map((val) => {
         product.map((data) => {
@@ -100,20 +104,26 @@ const ProductData = () => {
       <div className="container mt-4">
         <div className="row my-3">
           <div className="col-4">
-            {brand.map((productdata, i) => (
-              <div>
-                <input
-                  name="checkbox"
-                  type="checkbox"
-                  value={productdata}
-                  onChange={(e) => handleCheckbox(e, productdata)}
-                />
-                <span className="mx-1">{productdata}</span>
-              </div>
-            ))}
+            <div style={{ textAlign: "left" }}>
+              {brand.map((productdata, i) => (
+                <div>
+                  <input
+                    name="checkbox"
+                    type="checkbox"
+                    value={productdata}
+                    onChange={(e) => handleCheckbox(e, productdata)}
+                  />
+                  <label className="mx-2">{productdata}</label>
+                </div>
+              ))}
+            </div>
             <div>
-              <label> Price :</label>
-              <select value={select} onChange={priceSelectChange}>
+              <label className="label"> Price </label>
+              <select
+                className="select"
+                value={select}
+                onChange={priceSelectChange}
+              >
                 <option defaultValue="selected">Select</option>
                 <option value="1000-5000">1000-5000</option>
                 <option value="6000-10000">6000-10000</option>

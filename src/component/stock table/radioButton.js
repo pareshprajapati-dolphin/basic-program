@@ -14,7 +14,6 @@ const RadioButton = (props) => {
     }
     /// this price logic ////
     if (checked === "price") {
-      console.log("price function  is call");
       let amountperquanity = stocks / product.length;
       //console.log(amountperquanity);
       let limiteprice = 0;
