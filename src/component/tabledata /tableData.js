@@ -5,15 +5,50 @@ import { Link } from "react-router-dom";
 import ConfimModel from "./confimModel";
 
 const TableData = () => {
+  var today = new Date();
   const [users, setUsers] = useState();
   const [keyValue, setKeyValue] = useState("");
-  const [ctime, setCtime] = useState("");
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [userId, setUserId] = useState(null);
+
+  const [second, setSecond] = useState(today.getSeconds());
+  const [minutes, setMinuties] = useState(today.getMinutes());
+  const [hours, setHours] = useState(today.getHours());
+
   useEffect(() => {
     loadData();
+    setInterval(function () {
+      setSecond((second) => second + 1);
+    }, 1000);
   }, []);
+
+  function timeUpdate() {
+    if (hours > 12) {
+      let h = `0${hours % 12}`.slice(-2);
+      setHours(h);
+    }
+
+    // if (minutes < 10) {
+    //   console.log("thhhh");
+    //   let m = minutes;
+    //   m = m + 1;
+    //   m = m < 10 ? "0" + m : m;
+    //   setMinuties(m);
+    // }
+    if (second > 59) {
+      let m = minutes;
+      m = m + 1;
+      m = m < 10 ? "0" + m : m;
+      setMinuties(m);
+      setSecond(0);
+      if (minutes > 60) {
+        setHours(hours + 1);
+        setMinuties(0);
+      }
+    }
+    return `${hours}:${minutes}:${second}`;
+  }
 
   const loadData = async () => {
     await axios
@@ -23,46 +58,48 @@ const TableData = () => {
       });
   };
 
-  const updateTime = () => {
-    var today = new Date();
+  //setInterval(TimeFormate(hours, min, sec));
+  // const updateTime = () => {
+  //   var today = new Date();
+  //   console.log("test");
 
-    var day = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
-    var months =
-      today.getMonth() + 1 < 9
-        ? "0" + parseInt(today.getMonth() + 1)
-        : today.getMonth() + 1;
+  //   var day = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
+  //   var months =
+  //     today.getMonth() + 1 < 9
+  //       ? "0" + parseInt(today.getMonth() + 1)
+  //       : today.getMonth() + 1;
 
-    var year = today.getFullYear();
-    var hours = today.getHours();
-    var min =
-      today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
-    let sec = today.getSeconds();
+  //   var year = today.getFullYear();
+  //   var hours = today.getHours();
+  //   var min =
+  //     today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
+  //   let sec = today.getSeconds();
 
-    //console.log(typeof min, typeof hours);
-    var ampm = hours >= 12 ? "pm" : "am";
-    hours = hours % 12;
-    hours = hours < 10 ? "0" + hours : hours;
-    sec = sec < 10 ? "0" + sec : sec;
-    var dateTime1 =
-      day +
-      "/" +
-      months +
-      "/" +
-      year +
-      " " +
-      " " +
-      hours +
-      ":" +
-      min +
-      ":" +
-      sec +
-      " " +
-      " " +
-      ampm;
-    setCtime(dateTime1);
-  };
+  //   //console.log(typeof min, typeof hours);
+  //   var ampm = hours >= 12 ? "pm" : "am";
+  //   hours = hours % 12;
+  //   hours = hours < 10 ? "0" + hours : hours;
+  //   sec = sec < 10 ? "0" + sec : sec;
+  //   var dateTime1 =
+  //     day +
+  //     "/" +
+  //     months +
+  //     "/" +
+  //     year +
+  //     " " +
+  //     " " +
+  //     hours +
+  //     ":" +
+  //     min +
+  //     ":" +
+  //     sec +
+  //     " " +
+  //     " " +
+  //     ampm;
+  //   setCtime(dateTime1);
+  // };
 
-  setInterval(updateTime);
+  // setInterval(updateTime, 1000);
 
   const onSortChange = (key) => {
     let arrayCopy = [...users];
@@ -99,14 +136,17 @@ const TableData = () => {
     console.log(id);
     setModalIsOpen(!modalIsOpen);
   };
+
+  //let interval = setInterval(() => TimeFormate(hours, min, sec), 1000);
+
   return (
     <>
       <div className="container-fluid">
         <div classNames="mr-3 text-right">
-          <h1 className="d-inline">{ctime}</h1>
+          <h1 className="d-inline">Timer : {timeUpdate()}</h1>
         </div>
         <div className="my-3">
-          <table class="table table-striped border">
+          <table className="table table-striped border">
             <thead>
               <tr>
                 <th scope="col" onClick={() => onSortChange("id")}>
@@ -130,7 +170,7 @@ const TableData = () => {
             <tbody>
               {users &&
                 users.map((user, index) => (
-                  <tr>
+                  <tr key={index}>
                     <th scope="row">{index + 1}</th>
                     <td>{user.name}</td>
                     <td>{user.username}</td>
@@ -141,14 +181,14 @@ const TableData = () => {
                         to={`/users/edit/${user.id}`}
                         className="btn btn-success mx-2"
                       >
-                        <i class="fas fa-edit" />
+                        <i className="fas fa-edit" />
                       </Link>
                       <button
                         data-toggle="modal"
                         className="btn btn-danger"
                         onClick={() => deleteUser(user.id)}
                       >
-                        <i class="far fa-trash-alt" />
+                        <i className="far fa-trash-alt" />
                       </button>
                     </td>
                   </tr>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signin } from "../redux/actions";
+import SelectExample from "../selectbox example/selectExample";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -67,6 +68,8 @@ const Login = () => {
           </button>
         </form>
       </div>
+
+      <SelectExample />
     </>
   );
 };

@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DateTimeFormat } from "./dateTimeFormat";
 
 function DateFormat() {
+  const today = new Date();
+  useEffect(() => {
+    setInterval(function () {
+      //code goes here that will be run every 5 seconds.
+    }, 1000);
+  }, []);
   return (
     <>
       <div className="form-group">
@@ -10,9 +16,7 @@ function DateFormat() {
           type="date"
           name="dob"
           className="form-control"
-          value={DateTimeFormat(
-            "Tue Aug 26 2021 15:54:25 GMT+0530 (India Standard Time)"
-          )}
+          value={DateTimeFormat(today)}
         />
       </div>
     </>

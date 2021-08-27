@@ -25,7 +25,7 @@ const TableStock = (props) => {
   return (
     <>
       <div className="my-3">
-        <table class="table border shadow">
+        <table className="table border shadow">
           <thead>
             <tr>
               <th scope="col">id</th>

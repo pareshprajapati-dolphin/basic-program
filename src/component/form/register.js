@@ -3,7 +3,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import Button from "../custom compo/utility/button";
-import { DateTimeFormat } from "../custom compo/utility/dateTimeFormat";
+
 //import Input from "../custom compo/utility/input";
 
 const Register = (props) => {

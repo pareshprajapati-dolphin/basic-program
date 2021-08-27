@@ -123,7 +123,7 @@ const Product = () => {
           ))}
       </div>
       <div>
-        <ul class="pagination justify-content-end">
+        <ul className="pagination justify-content-end">
           <Pagination totalPages={totalPages} handleClick={handleClick} />
         </ul>
       </div>

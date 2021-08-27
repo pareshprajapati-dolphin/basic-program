@@ -62,7 +62,7 @@ function Login() {
                 <div className="form-group">
                   <input type="submit" className="btnSubmit" value="Login" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <p>
                     Dont have an account account?{" "}
                     <Link className="ForgetPwd" to={"/signup"}>
