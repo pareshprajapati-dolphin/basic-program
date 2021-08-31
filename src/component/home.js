@@ -198,6 +198,9 @@ const Home = () => {
           sed, euismod in, nibh.
         </p>
       </div>
+      <div>
+        <p>{process.env.REACT_APP_API_BASE_URL}</p>
+      </div>
     </>
   );
 };

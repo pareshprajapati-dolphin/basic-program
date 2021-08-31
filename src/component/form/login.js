@@ -35,6 +35,7 @@ const Login = () => {
     //     }
   };
 
+  console.log({ REACT_APP_API_ENDPOINT: process.env });
   return (
     <>
       <div className="container pt-3 rounded border">
@@ -69,7 +70,7 @@ const Login = () => {
         </form>
       </div>
 
-      <SelectExample />
+      {/* <SelectExample /> */}
     </>
   );
 };

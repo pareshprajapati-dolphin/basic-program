@@ -63,6 +63,8 @@ const Register = (props) => {
     console.log(dataSub);
     reset();
   };
+
+  const selectValue = register("category", { required: true });
   return (
     <>
       <div className="container pt-3 ">
@@ -231,14 +233,17 @@ const Register = (props) => {
           <label className="label"> Category</label>
           <select
             className="select"
-            {...register("category", { required: true, value: "A" })}
+            {...selectValue}
+            onChange={(e) => {
+              console.log(e.target.value);
+            }}
           >
             <option value="">Select Category...</option>
             <option value="A">Category A</option>
             <option value="B">Category B</option>
           </select>
           <div>
-            {errors.category && (
+            {errors.category === "required" && (
               <span className="error">select the one Category</span>
             )}
           </div>
