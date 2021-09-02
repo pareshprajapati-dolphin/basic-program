@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CopyToClipboard from "./custom compo/utility/copyToClipboard";
 
 const Home = () => {
   const [timer, setTimer] = useState();
@@ -63,12 +64,16 @@ const Home = () => {
       </div>
 
       <div className="container">
-        <h1>A simple page</h1>
+        <h1 onClick={() => CopyToClipboard("htage")} id="htage">
+          {" "}
+          {/*....copy the text on click then copy the h4 tag text */}A simple
+          page
+        </h1>
         <h4>Scroll to top using React functional Component and React hook</h4>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
         odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
         quis sem at nibh elementum imperdiet.
-        <p>
+        <p onClick={() => CopyToClipboard("div_id")} id="div_id">
           Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.
           Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem
           at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut
@@ -198,9 +203,7 @@ const Home = () => {
           sed, euismod in, nibh.
         </p>
       </div>
-      <div>
-        <p>{process.env.REACT_APP_API_BASE_URL}</p>
-      </div>
+      <div></div>
     </>
   );
 };

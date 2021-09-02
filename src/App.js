@@ -1,8 +1,8 @@
 //import logo from './logo.svg';
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Product from "./component/product/product";
@@ -25,6 +25,7 @@ import Cart from "./component/product sortion on checkbox/cart";
 import EditUser from "./component/tabledata /editUser";
 import Date from "./component/custom compo/utility/dateFormat";
 
+import Page from "./page";
 // import SignIn from "./component/demo privete rounting/login";
 // import ProtectedRoute from "./component/demo privete rounting/ProtectedRoute";
 // import Home from "./component/home1/homeComponent";
@@ -34,17 +35,79 @@ function App(props) {
 
   let route = (
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/tab" component={Tab} />
-      <Route path="/register" component={Register} />
-      <Route path="/table" component={TableData} />
+      <Route
+        exact
+        path="/"
+        render={(props) => (
+          <Page title="Home">
+            <Home {...props} />
+          </Page>
+        )}
+      />
+      <Route
+        path="/login"
+        render={(props) => (
+          <Page title="Sign in">
+            <Login {...props} />
+          </Page>
+        )}
+      />
+      <Route
+        path="/register"
+        render={(props) => (
+          <Page title="Register Page">
+            <Register {...props} />
+          </Page>
+        )}
+      />
+      <Route
+        path="/tab"
+        render={(props) => (
+          <Page title="Tab">
+            <Tab {...props} />
+          </Page>
+        )}
+      />
+
+      <Route
+        path="/table"
+        render={(props) => (
+          <Page title="User Table">
+            <TableData {...props} />
+          </Page>
+        )}
+      />
+
+      <Route
+        path="/stock"
+        render={(props) => (
+          <Page title="Stock Page">
+            <Stock {...props} />
+          </Page>
+        )}
+      />
+
+      <Route
+        path="/productdata"
+        render={(props) => (
+          <Page title="product Page">
+            <ProductData {...props} />
+          </Page>
+        )}
+      />
+
+      <Route
+        path="/users/edit/:id"
+        render={(props) => (
+          <Page title="users-edit">
+            <EditUser {...props} />
+          </Page>
+        )}
+      />
+
       <Route path="/parentComponent" component={CompA} />
-      <Route path="/stock" component={Stock} />
       <Route path="/home1" component={Data} />
-      <Route exact path="/productdata" component={ProductData} />
       <Route exact path="/productdata/carts" component={Cart} />
-      <Route exact path="/users/edit/:id" component={EditUser} />
       <Route path="/date" component={Date} />
     </Switch>
   );

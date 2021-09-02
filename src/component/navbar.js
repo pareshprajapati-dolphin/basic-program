@@ -16,7 +16,12 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/" className="nav-item">
+                <NavLink
+                  to="/"
+                  exact
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   Home
                 </NavLink>
               </li>
@@ -24,7 +29,11 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/login" className="nav-item">
+                <NavLink
+                  to="/login"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   Login
                 </NavLink>{" "}
@@ -32,7 +41,11 @@ const Navbar = (props) => {
             ) : null}
             {!isAuth ? (
               <li>
-                <NavLink to="/register" className="nav-item">
+                <NavLink
+                  to="/register"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   Sign up
                 </NavLink>
@@ -41,7 +54,11 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/tab" className="nav-item">
+                <NavLink
+                  to="/tab"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   Tab open
                 </NavLink>
@@ -51,7 +68,11 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/parentComponent" className="nav-item">
+                <NavLink
+                  to="/parentComponent"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   parentToChild
                 </NavLink>
@@ -61,7 +82,11 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/table" className="nav-item">
+                <NavLink
+                  to="/table"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   User Table
                 </NavLink>
@@ -70,7 +95,11 @@ const Navbar = (props) => {
             {isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/product" className="nav-item">
+                <NavLink
+                  to="/product"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   Product{" "}
                 </NavLink>{" "}
@@ -79,7 +108,11 @@ const Navbar = (props) => {
             {isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/context" className="nav-item">
+                <NavLink
+                  to="/context"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   Context{" "}
                 </NavLink>{" "}
@@ -88,7 +121,11 @@ const Navbar = (props) => {
             {isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/reducer" className="nav-item">
+                <NavLink
+                  to="/reducer"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   Reducer{" "}
                 </NavLink>{" "}
@@ -97,7 +134,11 @@ const Navbar = (props) => {
             {!isAuth ? (
               <li>
                 {" "}
-                <NavLink to="/stock" className="nav-item">
+                <NavLink
+                  to="/stock"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   {" "}
                   Stocks Table
                 </NavLink>{" "}
@@ -105,7 +146,11 @@ const Navbar = (props) => {
             ) : null}
             {!isAuth ? (
               <li>
-                <NavLink to="/productdata" className="nav-item">
+                <NavLink
+                  to="/productdata"
+                  activeClassName="is-active"
+                  className="nav-item"
+                >
                   filpkart productdesign
                 </NavLink>{" "}
               </li>

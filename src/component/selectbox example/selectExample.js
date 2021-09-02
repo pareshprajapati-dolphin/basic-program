@@ -1,8 +1,12 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const SelectExample = () => {
-  const { handleSubmit, control } = useForm({});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
   const data = [
     {
       value: "cerulean",
@@ -30,29 +34,27 @@ const SelectExample = () => {
     },
   ];
   const onSubmit = (data) => console.log(data);
+  const selectValue = register("category", { required: true });
   return (
     <>
       <div className="container">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <section>
-            <label>React Select</label>
-            <Controller
-              name="ReactSelect"
-              control={control}
-              render={({ field: { onChange, value } }) => (
-                <select
-                  className="select"
-                  selected={value}
-                  required={true}
-                  onChange={(e) => onChange(console.log(e.target.value))}
-                >
-                  {data.map((val, i) => (
-                    <option value={val.value}>{val.label}</option>
-                  ))}
-                </select>
-              )}
-            />
-          </section>
+          <select
+            className="select"
+            {...selectValue}
+            onChange={(e) => {
+              console.log(e.target.value);
+            }}
+          >
+            {data.map((val, index) => (
+              <option value={val.value}>{val.label}</option>
+            ))}
+          </select>
+          <div>
+            {errors.category && (
+              <span className="error">Select the category </span>
+            )}
+          </div>
         </form>
       </div>
       <input type="submit" />

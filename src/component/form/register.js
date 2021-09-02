@@ -3,6 +3,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import Button from "../custom compo/utility/button";
+import printComponent from "../custom compo/utility/printComponent";
 
 //import Input from "../custom compo/utility/input";
 
@@ -55,10 +56,11 @@ const Register = (props) => {
       lastname: data.lastname,
       email: data.email,
       phone: data.phone,
+      gender: data.gender,
       address: {
         category: data.category,
-        weather: data.weather,
       },
+      acceptTerms: data.terms,
     };
     console.log(dataSub);
     reset();
@@ -67,7 +69,7 @@ const Register = (props) => {
   const selectValue = register("category", { required: true });
   return (
     <>
-      <div className="container pt-3 ">
+      <div className="container mt-3">
         {/* <form onSubmit={handleSubmitt}>
           <div className="form-group">
             <label>FirstName</label>
@@ -154,11 +156,11 @@ const Register = (props) => {
             })}
             placeholder="firstname"
           />
-          <div>
-            {errors.firstname && (
-              <span className="error">This field is required</span>
-            )}
-          </div>
+
+          {errors.firstname && (
+            <span className="error">This field is required</span>
+          )}
+
           <label className="label"> LastName</label>
           <input
             className="input"
@@ -168,16 +170,16 @@ const Register = (props) => {
             })}
             placeholder="Last name"
           />
-          <div>
-            {errors.lastname && errors.lastname.type === "pattern" && (
-              <span className="error">
-                number and special char is not allowed
-              </span>
-            )}
-            {errors.lastname && errors.lastname.type === "required" && (
-              <span className="error">This field is required </span>
-            )}
-          </div>
+
+          {errors.lastname && errors.lastname.type === "pattern" && (
+            <span className="error">
+              number and special char is not allowed
+            </span>
+          )}
+          {errors.lastname && errors.lastname.type === "required" && (
+            <span className="error">This field is required </span>
+          )}
+
           <label className="label">Email Id</label>
           <input
             className="input"
@@ -187,9 +189,9 @@ const Register = (props) => {
             })}
             placeholder="email Id"
           />
-          <div>
-            {errors.email && <span className="error"> invalid Email id</span>}
-          </div>
+
+          {errors.email && <span className="error"> invalid Email id</span>}
+
           <label className="label">Phone Number</label>
           <input
             className="input"
@@ -201,11 +203,11 @@ const Register = (props) => {
             })}
             placeholder="Phone Number"
           />
-          <div>
-            {errors.phone && (
-              <span className="error">Enter the valid Number</span>
-            )}
-          </div>
+
+          {errors.phone && (
+            <span className="error">Enter the valid Number</span>
+          )}
+
           <label className="label">Date of Birth</label>
           <input
             className="input"
@@ -213,11 +215,7 @@ const Register = (props) => {
             {...register("dob", {
               required: "true",
             })}
-            // defaultValue={DateTimeFormat(
-            //   "Tue Aug 26 2021 15:54:25 GMT+0530 (India Standard Time)"
-            // )}
           />
-
           <label className="label">TextArea</label>
           <textarea
             className="input"
@@ -227,10 +225,8 @@ const Register = (props) => {
             })}
             placeholder="Enter the text"
           />
-          {/* <div>
-            {errors.dob && <span className="error">select the date</span>}
-          </div> */}
-          <label className="label"> Category</label>
+          {errors.textarea && <span className="error">Enter the text</span>}
+          <label className="label">Category</label>
           <select
             className="select"
             {...selectValue}
@@ -242,38 +238,49 @@ const Register = (props) => {
             <option value="A">Category A</option>
             <option value="B">Category B</option>
           </select>
-          <div>
-            {errors.category === "required" && (
-              <span className="error">select the one Category</span>
-            )}
-          </div>
+
+          {errors.category && (
+            <span className="error">Select the category </span>
+          )}
+
           <label className="label">
-            I would like to:
+            Gender:
             <input
               style={{ margin: "0px 10px" }}
-              {...register("weather", { required: "true" })}
+              {...register("gender", { required: "true" })}
               type="radio"
-              name="weather"
-              value="rain"
+              name="gender"
+              value="male"
             />
-            <label>Rain</label>
+            <label>Male</label>
             <input
               style={{ margin: "0px 10px" }}
-              {...register("weather", { required: "true" })}
+              {...register("gender", { required: "true" })}
               type="radio"
-              name="weather"
-              value="wind"
+              name="gender"
+              value="female"
             />
-            <label>Wind</label>
+            <label>Female</label>
           </label>
-          <div>
-            {errors.weather && (
-              <span className="error">select the one value</span>
-            )}
-          </div>
+
+          {errors.weather && (
+            <span className="error">select the one value</span>
+          )}
+
+          <label className="checkbox">
+            <input
+              style={{ margin: "0px 5px" }}
+              {...register("terms", { required: true })}
+              type="checkbox"
+              value={true}
+            />
+            I have read and agree to the Terms *
+          </label>
+
+          {errors.terms && <span className="error"> select the field</span>}
 
           <Button
-            className="btn btn-primary mt-3"
+            className="btn btn-primary mt-3 printbtn"
             type="submit"
             clicked={props.onSubmit}
           >
@@ -281,8 +288,8 @@ const Register = (props) => {
           </Button>
           <button
             type="button"
-            className="btn btn-secondary mt-3 mx-3"
-            onClick={() => history.push("/")}
+            className="btn btn-secondary mt-3 ml-3 printbtn"
+            onClick={() => history.push("/login")}
           >
             {" "}
             cancel

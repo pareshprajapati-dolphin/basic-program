@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signin } from "../redux/actions";
 import SelectExample from "../selectbox example/selectExample";
+import PrintComponent from "../custom compo/utility/printComponent";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -35,10 +36,9 @@ const Login = () => {
     //     }
   };
 
-  console.log({ REACT_APP_API_ENDPOINT: process.env });
   return (
     <>
-      <div className="container pt-3 rounded border">
+      <div className="container pt-3 simplediv">
         <form onSubmit={handleSubmitt}>
           <div className="form-group">
             <label className="label">Email address</label>
@@ -56,7 +56,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              className="form-control"
+              className="form-control input"
               id="password"
               placeholder="Password"
               onChange={handleChange}
@@ -64,12 +64,22 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary my-2 main">
             Submit
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary my-2 main"
+            onClick={() => history.push("/")}
+          >
+            Cancel
           </button>
         </form>
       </div>
 
+      <div>
+        <PrintComponent />
+      </div>
       {/* <SelectExample /> */}
     </>
   );

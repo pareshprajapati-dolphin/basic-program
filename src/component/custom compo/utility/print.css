@@ -1,0 +1,34 @@
+.simplediv {
+  display: block;
+}
+.printdiv {
+  display: none;
+}
+.main,
+.printbtn {
+  float: left;
+  width: 100px;
+  margin: 2px;
+  display: inline;
+}
+
+.header {
+  text-align: center;
+  padding-left: 30px;
+  font-size: 30px;
+  color: rgb(75, 101, 247);
+  border-bottom: 1px solid #aaa;
+}
+.printfooter {
+  border-top: 1px solid #aaa;
+}
+
+@media print {
+  .simplediv,
+  .printbtn {
+    display: none;
+  }
+  .printdiv {
+    display: block;
+  }
+}

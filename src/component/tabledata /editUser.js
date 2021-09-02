@@ -18,7 +18,7 @@ const EditUser = (props) => {
       .get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((response) => {
         //console.log(response.data)
-        setValue("name", response.data.name);
+        setValue("firstname", response.data.name);
         setValue("username", response.data.username);
         setValue("email", response.data.email);
         setValue("phone", response.data.phone);
@@ -36,7 +36,7 @@ const EditUser = (props) => {
   const onUpdate = (data) => {
     const dataSub = {
       firstname: data.firstname,
-      lastname: data.lastname,
+      username: data.username,
       email: data.email,
       phone: data.phone,
       address: {
@@ -51,9 +51,12 @@ const EditUser = (props) => {
       <div className="container">
         <form onSubmit={handleSubmit(onUpdate)}>
           <label className="label"> FirstName</label>
-          <input className="input" {...register("name", { required: true })} />
+          <input
+            className="input"
+            {...register("firstname", { required: true })}
+          />
           <div>
-            {errors.name && (
+            {errors.firstname && (
               <span className="error">This field is required</span>
             )}
           </div>
