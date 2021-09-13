@@ -3,7 +3,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import Button from "../custom compo/utility/button";
-import printComponent from "../custom compo/utility/printComponent";
+//import printComponent from "../custom compo/utility/printComponent";
 
 //import Input from "../custom compo/utility/input";
 
@@ -65,8 +65,8 @@ const Register = (props) => {
     console.log(dataSub);
     reset();
   };
-
   const selectValue = register("category", { required: true });
+
   return (
     <>
       <div className="container mt-3">
@@ -148,37 +148,52 @@ const Register = (props) => {
         </form> */}
 
         <form onSubmit={handleSubmit(onAdd)}>
-          <label className="label">FirstName</label>
-          <input
-            className="input"
-            {...register("firstname", {
-              required: true,
-            })}
-            placeholder="firstname"
-          />
+          <div className="row">
+            <div className="col col-4">
+              <label className="label">FirstName</label>
+              <input
+                className="input"
+                {...register("firstname", {
+                  required: true,
+                })}
+                placeholder="firstname"
+              />
 
-          {errors.firstname && (
-            <span className="error">This field is required</span>
-          )}
+              {errors.firstname && (
+                <span className="error">This field is required</span>
+              )}
+            </div>
+            <div className="col col-4">
+              <label className="label"> LastName</label>
+              <input
+                className="input"
+                {...register("lastname", {
+                  required: true,
+                  pattern: /^[A-Za-z]+$/i,
+                })}
+                placeholder="Last name"
+              />
 
-          <label className="label"> LastName</label>
-          <input
-            className="input"
-            {...register("lastname", {
-              required: true,
-              pattern: /^[A-Za-z]+$/i,
-            })}
-            placeholder="Last name"
-          />
-
-          {errors.lastname && errors.lastname.type === "pattern" && (
-            <span className="error">
-              number and special char is not allowed
-            </span>
-          )}
-          {errors.lastname && errors.lastname.type === "required" && (
-            <span className="error">This field is required </span>
-          )}
+              {errors.lastname && errors.lastname.type === "pattern" && (
+                <span className="error">
+                  number and special char is not allowed
+                </span>
+              )}
+              {errors.lastname && errors.lastname.type === "required" && (
+                <span className="error">This field is required </span>
+              )}
+            </div>
+            <div className="col col-4">
+              <label className="label">Date of Birth</label>
+              <input
+                className="input"
+                type="date"
+                {...register("dob", {
+                  required: "true",
+                })}
+              />
+            </div>
+          </div>
 
           <label className="label">Email Id</label>
           <input
@@ -208,14 +223,6 @@ const Register = (props) => {
             <span className="error">Enter the valid Number</span>
           )}
 
-          <label className="label">Date of Birth</label>
-          <input
-            className="input"
-            type="date"
-            {...register("dob", {
-              required: "true",
-            })}
-          />
           <label className="label">TextArea</label>
           <textarea
             className="input"
@@ -226,23 +233,45 @@ const Register = (props) => {
             placeholder="Enter the text"
           />
           {errors.textarea && <span className="error">Enter the text</span>}
-          <label className="label">Category</label>
-          <select
-            className="select"
-            {...selectValue}
-            onChange={(e) => {
-              console.log(e.target.value);
-            }}
-          >
-            <option value="">Select Category...</option>
-            <option value="A">Category A</option>
-            <option value="B">Category B</option>
-          </select>
 
-          {errors.category && (
-            <span className="error">Select the category </span>
-          )}
+          <div className="row">
+            <div className="col col-4">
+              <label className="label">Category</label>
+              <select
+                className="select"
+                {...selectValue}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                }}
+              >
+                <option value="">Select Category...</option>
+                <option value="A">Category A</option>
+                <option value="B">Category B</option>
+              </select>
 
+              {errors.category && (
+                <span className="error">Select the category </span>
+              )}
+            </div>
+            <div className="col col-4">
+              <label className="label">Category</label>
+              <select
+                className="select"
+                {...selectValue}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                }}
+              >
+                <option value="">Select Category...</option>
+                <option value="A">Category A</option>
+                <option value="B">Category B</option>
+              </select>
+
+              {errors.category && (
+                <span className="error">Select the category </span>
+              )}
+            </div>
+          </div>
           <label className="label">
             Gender:
             <input

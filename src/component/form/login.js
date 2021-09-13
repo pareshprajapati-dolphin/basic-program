@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signin } from "../redux/actions";
+import { signin } from "component/redux/actions";
 import SelectExample from "../selectbox example/selectExample";
-import PrintComponent from "../custom compo/utility/printComponent";
+import PrintComponent from "component/custom compo/utility/printComponent";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({

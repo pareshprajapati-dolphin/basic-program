@@ -21,24 +21,6 @@
   text-align: center;
 }
 
-.ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.li {
-  display: inline;
-  float: left;
-}
-.nav-item {
-  color: black;
-  display: block;
-  padding: 8px;
-}
-.is-active {
-  background-color: rgb(76, 76, 248);
-  color: white;
-}
 .error {
   text-align: left;
   color: red;
@@ -48,8 +30,8 @@
   display: block;
   box-sizing: border-box;
   width: 100%;
-  border-radius: 4px;
-  border: 1px solid black;
+  border: none;
+  border-bottom: 2px solid black;
   padding: 10px 15px;
   margin-bottom: 5px;
   font-size: 14px;

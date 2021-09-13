@@ -2,8 +2,6 @@ import React from "react";
 import "./print.css";
 
 const PrintComponent = (props) => {
-  const { firstname, lastname, email, number, category } = props;
-
   const handlePrint = () => {
     window.print();
   };

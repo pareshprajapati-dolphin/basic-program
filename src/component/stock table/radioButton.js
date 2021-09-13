@@ -14,8 +14,8 @@ const RadioButton = (props) => {
     }
     /// this price logic ////
     if (checked === "price") {
-      let amountperquanity = stocks / product.length;
-      //console.log(amountperquanity);
+      let amountperquanity = stocks / product.length; /// total quanity is get of the total product
+      // console.log(amountperquanity);
       let limiteprice = 0;
 
       caldata = caldata.map((ele) => {
@@ -23,11 +23,10 @@ const RadioButton = (props) => {
         // console.log("the limit price is ===", limiteprice);
         if (stocks > limiteprice) {
           ele.quanity = Math.floor(amountperquanity / ele.price);
-          console.log(ele.quanity);
+          // console.log(ele.quanity);
         }
         return ele;
       });
-      // console.log(caldata);
     }
     //console.log(caldata);
     setProducts(caldata);
