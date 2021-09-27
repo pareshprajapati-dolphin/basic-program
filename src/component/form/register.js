@@ -11,6 +11,7 @@ const Register = (props) => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset,
   } = useForm({});
@@ -51,20 +52,16 @@ const Register = (props) => {
   // };
 
   const onAdd = (data) => {
-    const dataSub = {
-      firstname: data.firstname,
-      lastname: data.lastname,
-      email: data.email,
-      phone: data.phone,
-      gender: data.gender,
-      address: {
-        category: data.category,
-      },
-      acceptTerms: data.terms,
-    };
-    console.log(dataSub);
+    console.log(data);
+    const fd = new FormData();
+    for (var key in data) {
+      fd.append(key, data[key]);
+    }
+
+    fd.append("image", data.image[0]);
     reset();
   };
+
   const selectValue = register("category", { required: true });
 
   return (
@@ -157,6 +154,7 @@ const Register = (props) => {
                   required: true,
                 })}
                 placeholder="firstname"
+                autoFocus
               />
 
               {errors.firstname && (
@@ -259,7 +257,7 @@ const Register = (props) => {
                 className="select"
                 {...selectValue}
                 onChange={(e) => {
-                  console.log(e.target.value);
+                  setValue(e.target.value);
                 }}
               >
                 <option value="">Select Category...</option>
@@ -272,6 +270,17 @@ const Register = (props) => {
               )}
             </div>
           </div>
+
+          <label className="label">File</label>
+          <input
+            type="file"
+            className="select"
+            name="image"
+            {...register("image", { required: "true" })}
+          />
+
+          {errors.image && <span className="error">Select the file </span>}
+
           <label className="label">
             Gender:
             <input

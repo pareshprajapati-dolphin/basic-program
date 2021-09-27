@@ -76,7 +76,6 @@ function App(props) {
           </Page>
         )}
       />
-
       <Route
         path="/table"
         render={(props) => (
@@ -85,7 +84,6 @@ function App(props) {
           </Page>
         )}
       />
-
       <Route
         path="/stock"
         render={(props) => (
@@ -94,7 +92,6 @@ function App(props) {
           </Page>
         )}
       />
-
       <Route
         path="/productdata"
         render={(props) => (
@@ -103,7 +100,6 @@ function App(props) {
           </Page>
         )}
       />
-
       <Route
         path="/users/edit/:id"
         render={(props) => (
@@ -112,12 +108,11 @@ function App(props) {
           </Page>
         )}
       />
-
       <Route path="/parentComponent" component={CompA} />
-      <Route path="/home1" component={Data} />
+      {/* /// this the increment and decrement data using redux */}
+      <Route path="/home1" component={Data} />{" "}
       <Route exact path="/productdata/carts" component={Cart} />
       <Route path="/date" component={Date} />
-
       <Route component={NotFound} />
     </Switch>
   );

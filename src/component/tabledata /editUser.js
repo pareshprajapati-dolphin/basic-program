@@ -6,16 +6,16 @@ import axios from "axios";
 import { useHistory } from "react-router";
 import Spinner from "component/custom compo/Spinner/spinner";
 
-const EditUser = (props) => {
+const EditUser = () => {
   const { id } = useParams();
   const history = useHistory();
   const [loading, isLoading] = useState(true);
-
-  const [cityData, setCityData] = useState([
-    "Gwenborough",
-    "Wisokyburgh",
-    "McKenziehaven",
-  ]);
+  const [city, setCity] = useState();
+  const cityData = [
+    { value: "Gwenborough", label: "Gwenborough" },
+    { value: "Wisokyburgh", label: "Wisokyburgh" },
+    { value: "McKenziehaven", label: "McKenziehaven" },
+  ];
 
   useEffect(() => {
     editData();
@@ -44,6 +44,7 @@ const EditUser = (props) => {
 
   //  console.log(editUser);
   const onUpdate = (data) => {
+    console.log(city);
     const dataSub = {
       firstname: data.firstname,
       username: data.username,
@@ -115,13 +116,12 @@ const EditUser = (props) => {
             <select
               className="select"
               {...selectValue}
-              value={setValue}
               onChange={(e) => {
-                console.log(e.target.value);
+                setCity(e.target.value);
               }}
             >
               {cityData.map((data) => (
-                <option>{data}</option>
+                <option value={data.value}>{data.label}</option>
               ))}
             </select>
             <div>

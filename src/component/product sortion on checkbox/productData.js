@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import data from "./data.json";
 import ProductItem from "./productItem";
@@ -8,9 +8,8 @@ const ProductData = () => {
   const [product, setProduct] = useState(data.products);
   const [checkvalue, setCheckValue] = useState([]);
 
-  const [brand, setBrand] = useState([
-    ...new Set(data.products.map((value) => value.brande)),
-  ]);
+  let brand = [...new Set(data.products.map((value) => value.brande))];
+
   const [select, setSelect] = useState("selected");
   const [count, setCount] = useState(0);
 
@@ -91,6 +90,20 @@ const ProductData = () => {
     SetProductData(finalResult);
   };
 
+  const focuseFunction = (e) => {
+    if (e.key === "k" && e.altKey) {
+      document.getElementById("search").focus();
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", focuseFunction);
+    return () => {
+      //document.removeEventListener("keydown", escFunction);
+    };
+  }, []);
+
   return (
     <>
       <div className="container-fluid">
@@ -129,6 +142,15 @@ const ProductData = () => {
                 <option value="6000-10000">6000-10000</option>
                 <option value="11000-20000">11000-20000</option>
               </select>
+            </div>
+
+            <div className="mt-4">
+              <input
+                id="search"
+                type="text"
+                className="select"
+                placeholder="Search..   ALT+K"
+              />
             </div>
           </div>
 

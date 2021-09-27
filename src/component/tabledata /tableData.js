@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 //import data from "../../db.json";
 import { Link } from "react-router-dom";
@@ -29,7 +29,6 @@ const TableData = () => {
   function timeUpdate() {
     if (hours > 12) {
       let h = `0${hours % 12}`;
-      console.log(h);
       setHours(h);
     }
 
@@ -62,11 +61,13 @@ const TableData = () => {
     let arrayCopy = [...users];
 
     if (keyValue !== key) {
+      //asceding order sorting
       arrayCopy.sort((a, b) =>
         a[key] > b[key] ? 1 : b[key] > a[key] ? -1 : 0
       );
       setKeyValue(key); // here set the previous key of the sorting
     } else {
+      // desceding order sorting
       arrayCopy.sort((a, b) =>
         b[key] > a[key] ? 1 : a[key] > b[key] ? -1 : 0
       );
@@ -87,6 +88,7 @@ const TableData = () => {
 
   // in confim modal click on the yes button then deleter operation perform
   const submitDelete = (id) => {
+    /// call the api here
     console.log(id);
     setModalIsOpen(!modalIsOpen);
   };

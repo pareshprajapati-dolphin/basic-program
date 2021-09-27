@@ -49,6 +49,7 @@ const Login = () => {
               placeholder="Enter email"
               onChange={handleChange}
               value={loginData.email}
+              autoFocus
             />
           </div>
           <div className="form-group">
